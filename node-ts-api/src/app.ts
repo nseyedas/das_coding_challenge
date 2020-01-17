@@ -16,13 +16,7 @@ app.get('/calculator', (req: Request, res: Response, next: NextFunction) => {
         };
     }
     res.send(result);
-
-
     //compute optimal coins
-
-
-
-
 });
 
 app.listen(5000, () => console.log('Server Running'));

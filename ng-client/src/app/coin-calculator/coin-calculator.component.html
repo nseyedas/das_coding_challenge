@@ -1,0 +1,7 @@
+<div class="container">
+    <h1>Optimal Coin Calculator</h1>
+    <input #amount (keyup.enter)="calculateOptimalCoins(amount.value)" ng-model="result">
+    <button (click)="calculateOptimalCoins(amount.value)">Add</button>
+    <hr>
+    <span>{{result}}</span>
+  </div>
