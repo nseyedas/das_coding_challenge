@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorService } from '../calculator.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-coin-calculator',
@@ -8,14 +8,12 @@ import { CalculatorService } from '../calculator.service';
 })
 export class CoinCalculatorComponent implements OnInit {
 
-  coins: [];
-
-  constructor(private calculatorService: CalculatorService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
   calculateOptimalCoins(amount: number) {
-//
+    return this.http.get('localhost:5000/calculator')
   }
 }
