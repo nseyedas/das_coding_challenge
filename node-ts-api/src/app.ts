@@ -1,8 +1,16 @@
 import express, { Application, Response, Request, NextFunction } from 'express';
+import cors from 'cors';
+
+
 
 const app: Application = express();
 
-app.get('/calculator', (req: Request, res: Response, next: NextFunction) => {
+var corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+app.get('/calculator', cors(corsOptions), (req: Request, res: Response, next: NextFunction) => {
     var coinArray = [.01, .05, .1, .25, .5, 1];
     var result = [];
 
@@ -15,8 +23,8 @@ app.get('/calculator', (req: Request, res: Response, next: NextFunction) => {
           result.push([coin, count])
         };
     }
-    res.send(result);
+    res.json(result);
     //compute optimal coins
 });
 
-app.listen(5000, () => console.log('Server Running'));
+app.listen(5000, () => console.log('Server Running'));  
