@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorService } from '../calculator.service';
 import { HttpClient } from '@angular/common/http';
 
 
