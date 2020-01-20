@@ -17,10 +17,11 @@ app.get('/calculator', cors(corsOptions), (req: Request, res: Response, next: Ne
     // const result = [];
     while (coinArray.length) {
         var coin :any = coinArray.pop(); 
-        var count = Math.floor(req.query.amount / coin); // See how many times I need that coin
-        req.query.amount -= count * coin; // Reduce the amount with that number of coins
-        if (count) {
-          result.push([coin, count])
+        var count :any  = (req.query.amount / coin).toFixed(2);
+        let currentCount = Math.floor(count);
+        req.query.amount -= currentCount * coin; 
+        if (currentCount) {
+          result.push([coin, currentCount])
         };
     }
     res.json(result);
